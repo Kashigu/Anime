@@ -1,0 +1,11 @@
+<?php
+define("HOST","localhost");
+define("USER","root");
+define("PASSWORD","");
+define("DATABASE","mydb");
+define("HOME",0);
+define("CATEGORIAS",1);
+define("PROCURAR",2);
+define("GESTAO",3);
+define("ANIMES",4);
+?>
