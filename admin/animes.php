@@ -64,28 +64,27 @@ topadmin(HOME)
 <div class="modal fade" id="staticBackdropDele" data-backdrop="static" data-keyboard="false" tabindex="-1"
      aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <div class="modal-content">
+        <div class="modal-content" style="background: #0b0c2a">
             <form method="post" enctype="multipart/form-data" class="contact-form">
 
                 <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Delete Anime</h5>
+                    <h5 style="color: white" class="modal-title" id="staticBackdropLabel">Delete Anime</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
+                        <span style="color: red" aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
 
-                    <span id="idAnime"></span>
+                    <span style="color: white" id="idAnime"></span>
 
 
                 </div>
                 <div class="modal-footer">
-                    <div class="col-lg-7 meio">
+                    <div class="col-lg-3">
                         <button type="button" class="btn btn-secondary pull-left" data-dismiss="modal">Close</button>
                     </div>
-                    <div class="col-lg-5 meio">
-                        <button
-                        <button onclick="DeleteTableAnime();" type="button" class="btn btn-danger mt-2">Delete
+                    <div class="col-lg-3">
+                        <button onclick="DeleteTableAnime();" type="button" class="btn btn-danger">Delete
                         </button>
                     </div>
                 </div>

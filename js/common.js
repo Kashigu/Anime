@@ -109,3 +109,37 @@ function EditarTableCategorias() {
 
 
 }
+
+function eliminaAnime(id) {  // abre o modal e injecta o ID
+    $("#AnimeID").html(id);
+    $.ajax({
+        url: "../AJAX/AJAXGetNameAnimes.php",
+        type: "post",
+        data: {
+            idAnime: id
+        },
+        success: function (result) {
+
+            $("#idAnime").html('Are you sure you want to Delete: ' + result + ' ?');
+
+            $("#staticBackdropDele").modal("toggle");
+            //fillTableCategorias();
+        }
+    })
+}
+
+
+function DeleteTableAnime() {
+    $('#staticBackdropDele').modal('toggle');
+    $.ajax({
+        url: "../AJAX/AJAXDeleteAnime.php",
+        type: "post",
+        data: {
+            anime: parseInt($('#AnimeID').html())
+        },
+        success: function (result) {
+            fillTableAnimes();
+        }
+    });
+
+}
