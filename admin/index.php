@@ -1,6 +1,6 @@
 <?php
 include_once("../includes/body.inc.php");
-topadmin(HOME)
+topadmin(GESTAO)
 ?>
 <!-- Product Section Begin -->
 <section class="product-page spad">
