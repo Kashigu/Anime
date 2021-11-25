@@ -112,6 +112,17 @@ ol {
   Helper CSS
 -----------------------*/
 
+/*    															My css															     */
+.reduzido {
+	display: inline;
+	width: 70px;
+	height: 65px;
+	border-radius: 50%;
+}
+
+
+
+
 .section-title {
 	margin-bottom: 30px;
 }
