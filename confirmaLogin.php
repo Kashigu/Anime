@@ -20,7 +20,7 @@ $dados2=mysqli_fetch_array($res2);
 
 
 
-if($password == $dados2['userPass'] AND $email == $dados2['userEmail'] and $dados2['userAdmin']=='User' ) {
+if($password == $dados2['userPass'] AND $email == $dados2['userEmail'] and $dados2['usersAdmin']=='User' ) {
     session_start();
     $_SESSION['id'] = $dados['userId'];
     $_SESSION['nome'] = $dados['userName'];
@@ -28,7 +28,7 @@ if($password == $dados2['userPass'] AND $email == $dados2['userEmail'] and $dado
     header("location:index.php");
 
 
-}elseif($password == $dados2['userPass'] AND $email == $dados2['userEmail'] and $dados2['userAdmin']=='Admin' ) {
+}elseif($password == $dados2['userPass'] AND $email == $dados2['userEmail'] and $dados2['usersAdmin']=='Admin' ) {
     session_start();
     $_SESSION['id'] = $dados['userId'];
     $_SESSION['nome'] = $dados['userName'];

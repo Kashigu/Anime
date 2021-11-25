@@ -25,14 +25,13 @@ top(ANIMES);
                     <div class="login__form">
                         <h3>Login</h3>
                         <form action="confirmaLogin.php" method="post" class="contact-form" id="frmConfirma">
-                            <div class="input__item">
-                                <span id="NoEmail"></span>
+                            <div class="input__item mt-3">
                                 <input style="color: black" type="email" id="emails" name="email" placeholder="Email address">
                                 <span class="icon_mail"></span>
                             </div>
-                            <div class="input__item">
-                                <span id="NoPass"></span>
-                                <input type="password" id="password" name="password" placeholder="Password">
+                            <div class="input__item mt-3">
+
+                                <input style="color: black;" type="password" id="password" name="password" placeholder="Password">
                                 <span class="icon_lock"></span>
                             </div>
                             <button onclick="entrar()" type="button" class="site-btn">Login Now</button>
