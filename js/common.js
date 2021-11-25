@@ -143,3 +143,40 @@ function DeleteTableAnime() {
     });
 
 }
+
+
+///////////////////////////////////////// Login /////////////////////////////////////
+
+function entrar() {
+    let emails = $('#emails').val();
+    let password = $('#password').val();
+    let erro = false;
+
+    if ($('#password').val() == '') {
+        erro = true;
+        $('#NoPass').html('Insert an Password');
+    }
+    if ($('#emails').val() == '') {
+        erro = true;
+        $('#NoEmail').html('Insert an Email');
+    } else {
+        $.ajax({
+            url: "AJAX/AJAXConfirmaLogin.php",
+            type: "post",
+            data: {
+                email: emails,
+                password: password
+            },
+            success: function (result) {
+                if ((result) == 1) {
+                    erro = true;
+                    $('#frmConfirma').submit();
+
+                } else if (!erro) {
+
+                    alert('Misentered data');
+                }
+            }
+        });
+    }
+}
