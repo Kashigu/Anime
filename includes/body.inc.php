@@ -102,9 +102,24 @@ function top($menu = HOME){
                     </nav>
                 </div>
             </div>
+            <?php
+            if(!isset($_SESSION['id'])){
+                ?> <div class="col-lg-3">
+                    <div class="header__right">
+                        <form action="search.php" style="position: relative; right: 30px ;" method="post"
+                              enctype="multipart/form-data" id="searchProcurar">
+                            <input style="margin-right:-50px; color: white; background-color: #0b0c2a; display: none "
+                                   id="Search" type="text" placeholder="Search.." name="search">
+                        </form>
+                    </div>
+                </div>
+
+            <?php
+            }else{
+            ?>
             <div class="col-lg-3">
                 <div class="header__right">
-                    <form action="../search.php" style="position: relative; right: 70px ; top: 30px" method="post"
+                    <form action="search.php" style="position: relative; right: 70px ; top: 30px" method="post"
                           enctype="multipart/form-data" id="searchProcurar">
                         <input style="margin-right:-50px; color: white; background-color: #0b0c2a; display: none "
                                id="Search" type="text" placeholder="Search.." name="search">
@@ -113,12 +128,17 @@ function top($menu = HOME){
                                 class="icon_search" style="color: white; margin-right: 10px"></span></button>
                 </div>
             </div>
+            <?php
+            }
+            ?>
             <div class="col-lg-1">
                 <div class="header__right">
                     <?php
                     if (!isset($_SESSION['id'])) {
                         ?>
-                        <a href="../login.php"><span class="icon_profile"></span></a>
+                        <button style="background-color:transparent; border:transparent;" onclick="mostrarSearch()"><span
+                                    class="icon_search" style="color: white; margin-right: 10px"></span></button>
+                        <a href="login.php"><span class="icon_profile"></span></a>
                         <?php
                     } else {
                         ?>
@@ -128,7 +148,7 @@ function top($menu = HOME){
                         $resultPerfis = mysqli_query($con, $sql);
                         $dadosPerfis = mysqli_fetch_array($resultPerfis)
                         ?>
-                        <a href="../perfil.php?id=<?php echo $dadosPerfis['userId'] ?>">
+                        <a href="perfil.php?id=<?php echo $dadosPerfis['userId'] ?>">
                             <img src="<?php echo $dadosPerfis['userImageURL'] ?>" class="reduzido"></a>
                         <?php
                     }
