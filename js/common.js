@@ -180,3 +180,41 @@ function entrar() {
         });
     }
 }
+
+//////////////////////////////////////////////// Register //////////////////////////////////////////////////
+
+function valido() {
+    let emails = $('#emails').val();
+    let erro = false;
+    if ($('#password').val() == '' || ($('#password').val() != ($('#Conpassword').val()))) {
+        erro = true;
+    }
+    if ($('#Conpassword').val() == '0' || ($('#Conpassword').val() != ($('#password').val()))) {
+        erro = true;
+        $('#errorMsgS').html('Wrong Password');
+    }
+    if ($('#name').val() == '') {
+        erro = true;
+    }
+    if ($('#emails').val() == '') {
+        erro = true;
+    } else {
+        $.ajax({
+            url: "AJAX/AJAXVerifyEmail.php",
+            type: "post",
+            data: {
+                txt: emails
+            },
+            success: function (result) {
+                if (parseInt(result) == 1) {
+                    erro = true;
+                    $('#errorMsg').html('Already Taken');
+                } else if (!erro) {
+
+                    $('#frmRegisto').submit();
+                }
+            }
+        });
+
+    }
+}
