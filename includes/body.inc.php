@@ -401,6 +401,14 @@ function botadmin($menu = HOME){
     fillTableCategorias();
     <?php
     }
+    if ($menu == USERS){
+    ?>
+    $('#search').keyup(function () {
+        fillTableUtilizador(this.value);
+    });
+    fillTableUtilizador();
+    <?php
+    }
     ?>
 </script>
 

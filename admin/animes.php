@@ -8,7 +8,7 @@ topadmin(HOME)
             <div class="col-lg-12 anime__details__btn ">
                 <form action="index.php">
                     <div class="col-lg-4 mt-3 ">
-                        <h5>Nome das Categorias</h5>
+                        <h5 style="color: white" class="mt-2">Name of Animes</h5>
                         <input style="margin-right:10px; width:500px; height: 50px; color: white; background-color: #0b0c2a;"
                                type="text" id="search">
                     </div>

@@ -2,19 +2,7 @@ function mostrarSearch() {
     $('#Search').toggle();
 }
 
-function fillTableAnimes(txt = '') {
 
-    $.ajax({
-        url: "../AJAX/AJAXFillAnimes.php",
-        type: "post",
-        data: {
-            txt: txt
-        },
-        success: function (result) {
-            $('#tableContent').html(result);
-        }
-    });
-}
 //-------------------------------------------- Categorias ---------------------------------------------------------//
 function fillTableCategorias(txt = '') {
 
@@ -108,6 +96,21 @@ function EditarTableCategorias() {
     });
 
 
+}
+//////////////////////////////////////////////////////////// Animes /////////////////////////////////////////////
+
+function fillTableAnimes(txt = '') {
+
+    $.ajax({
+        url: "../AJAX/AJAXFillAnimes.php",
+        type: "post",
+        data: {
+            txt: txt
+        },
+        success: function (result) {
+            $('#tableContent').html(result);
+        }
+    });
 }
 
 function eliminaAnime(id) {  // abre o modal e injecta o ID
@@ -217,4 +220,52 @@ function valido() {
         });
 
     }
+}
+
+///////////////////////////////////////// Users //////////////////////////////////////////////
+
+function fillTableUtilizador(txt = '') {
+    $.ajax({
+        url: "../AJAX/AJAXFillUtilizador.php",
+        type: "post",
+        data: {
+            txt: txt
+        },
+        success: function (result) {
+            $('#tableContent').html(result);
+        }
+    });
+
+}
+
+function DeleteUtilizador(id) {  // abre o modal e injecta o ID
+    $("#PerfilID").html(id);
+    $.ajax({
+        url: "../AJAX/AJAXGetNameUtilizador.php",
+        type: "post",
+        data: {
+            idPerfil: id
+        },
+        success: function (result) {
+
+            $("#idPerfil").html('Confirma que deseja eliminar o Utilizador: ' + result + '?');
+
+            $("#staticBackdropDele").modal("toggle");
+            //fillTableUtilizador();
+        }
+    })
+}
+
+function DeleteTableUtilizador() { // vai buscar o ID injectado e faz o DELETE
+    $('#staticBackdropDele').modal('toggle');
+    $.ajax({
+        url: "../AJAX/AJAXDeleteUtilizador.php",
+        type: "post",
+        data: {
+            perfil: parseInt($('#PerfilID').html())
+        },
+        success: function (result) {
+            fillTableUtilizador();
+        }
+    });
 }

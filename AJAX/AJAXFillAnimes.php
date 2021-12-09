@@ -11,13 +11,9 @@ $result = mysqli_query($con, $sql);
 
     <table class="table table-striped table-hover">
         <tr>
-            <td colspan="5" align='right'>
-                <a data-toggle="modal" data-target="#categoria"><i style="color: white"> Add</i></a>
-            </td>
-        </tr>
-        <tr>
             <th style="color: white">Id</th>
             <th style="color: white">Name</th>
+            <th style="color: white">Japanese Name</th>
             <th style="color: white">Image</th>
             <th colspan="2" class="centertext" style="color: white">Options</th>
         </tr>
@@ -28,6 +24,7 @@ $result = mysqli_query($con, $sql);
             <tr id="<?php echo $dados['animeId']; ?>">
                 <td data-target="animeId" style="color: white"><?php echo $dados['animeId'] ?></td>
                 <td data-target="animeName" style="color: white"><?php echo $dados['animeName'] ?></td>
+                <td data-target="animeName" style="color: white"><?php echo $dados['animeJapaneseName'] ?></td>
                 <td data-target="animeImagem"><img width='100' height="100" src="../<?php echo $dados['animeImagemURL'] ?>"></td>
                 <td><a onclick="editaAnime(<?php echo $dados['animeId'];?>)" ><i
                             class="fa fa-edit text-primary"></i></a></td>
