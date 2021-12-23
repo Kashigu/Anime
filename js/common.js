@@ -157,11 +157,11 @@ function entrar() {
 
     if ($('#password').val() == '') {
         erro = true;
-        $('#NoPass').html('Insert an Password');
+
     }
     if ($('#emails').val() == '') {
         erro = true;
-        $('#NoEmail').html('Insert an Email');
+
     } else {
         $.ajax({
             url: "AJAX/AJAXConfirmaLogin.php",
