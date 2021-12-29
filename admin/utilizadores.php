@@ -28,38 +28,35 @@ topadmin(HOME)
 <div class="modal fade" id="staticBackdropDele" data-backdrop="static" data-keyboard="false" tabindex="-1"
      aria-labelledby="staticBackdropLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <div class="modal-content">
+        <div class="modal-content" style="background: #0b0c2a">
             <form class=contact-form method=post enctype=multipart/form-data>
 
                 <div class="modal-header">
-                    <h5 class="modal-title" id="staticBackdropLabel">Eliminar Distrito</h5>
+                    <h5 style="color: white" class="modal-title" id="staticBackdropLabel">Delete Genre</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
+                        <span style="color: red" aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
 
-                    <span id="idPerfil"></span>
+                    <span style="color: white" id="idUser"></span>
 
                 </div>
                 <div class="modal-footer">
-                    <div class="col-lg-7 meio">
-                        <button type="button" class="btn btn-secondary pull-left" data-dismiss="modal">Fechar</button>
+                    <div class="col-lg-3">
+                        <button type="button" class="btn btn-secondary pull-left" data-dismiss="modal">Close</button>
                     </div>
-                    <div class="col-lg-5 meio">
-                        <button onclick="DeleteTableUtilizador();" type="button" id="eliminar"
-                                class="btn btn-danger pull-right ">Eliminar
+                    <div class="col-lg-3">
+                        <button onclick="DeleteTableUtilizador();" type="button" class="btn btn-danger">Delete
                         </button>
                     </div>
                 </div>
+
+                <input type="hidden" id="UserID">
+            </form>
         </div>
-        <input type="hidden" id="PerfilID">
-        </form >
     </div>
 </div>
-
-
-<!-- Modal do Editar-->
 
 
 <?php

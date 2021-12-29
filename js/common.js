@@ -239,16 +239,16 @@ function fillTableUtilizador(txt = '') {
 }
 
 function DeleteUtilizador(id) {  // abre o modal e injecta o ID
-    $("#PerfilID").html(id);
+    $("#UserID").html(id);
     $.ajax({
         url: "../AJAX/AJAXGetNameUtilizador.php",
         type: "post",
         data: {
-            idPerfil: id
+            idUser: id
         },
         success: function (result) {
 
-            $("#idPerfil").html('Confirma que deseja eliminar o Utilizador: ' + result + '?');
+            $("#idUser").html('Confirma que deseja eliminar o Utilizador: ' + result + '?');
 
             $("#staticBackdropDele").modal("toggle");
             //fillTableUtilizador();
@@ -259,10 +259,10 @@ function DeleteUtilizador(id) {  // abre o modal e injecta o ID
 function DeleteTableUtilizador() { // vai buscar o ID injectado e faz o DELETE
     $('#staticBackdropDele').modal('toggle');
     $.ajax({
-        url: "../AJAX/AJAXDeleteUtilizador.php",
+        url: "../AJAX/AJAXDeleteUser.php",
         type: "post",
         data: {
-            perfil: parseInt($('#PerfilID').html())
+            user: parseInt($('#UserID').html())
         },
         success: function (result) {
             fillTableUtilizador();
