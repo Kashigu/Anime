@@ -46,7 +46,7 @@ $result = mysqli_query($con, $sql);
                     ?>
                     <td><a href="ativarAdmin.php?id=<?php echo $dados['userId'];?>"> Make Admin </a></td>
                     <?php
-                } else if ($dados['usersAdmin'] == 'admin') {
+                } else if ($dados['usersAdmin'] == 'Admin') {
                     ?>
                     <td><a href="desativarAdmin.php?id=<?php echo $dados['userId'];?>"> Make User</a></td>
                     <?php
