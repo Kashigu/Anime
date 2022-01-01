@@ -818,6 +818,7 @@ ol {
 
 .product__sidebar__view__item h5 a {
 	color: #ffffff;
+	background: #0b0c2a;
 	font-weight: 700;
 	line-height: 26px;
 }

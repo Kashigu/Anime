@@ -12,7 +12,7 @@ topadmin(HOME)
                         <input style="margin-right:10px; width:500px; height: 50px; color: white; background-color: #0b0c2a;"
                                type="text" id="search">
                     </div>
-                    <button class="follow-btn" style="position: relative; left: 1000px;" type="submit">Voltar</button>
+                    <button class="follow-btn" style="position: relative; left: 1036px;" type="submit">Back</button>
                 </form>
             </div>
             <div class="col-lg-12 mt-3" id="tableContent">
