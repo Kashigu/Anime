@@ -39,7 +39,20 @@ top(PROCURAR)
                                     <div class="product__item">
                                         <div class="product__item__pic set-bg"
                                              data-setbg="<?php echo $dadosAnime['animeImagemURL'] ?>">
-                                            <div class="ep">18 / 18</div>
+                                            <?php
+                                                $sql1 = "Select count(*) as n from episodios where episodioAnimeId=" . $dadosAnime['animeId'];
+                                                $resultadoEpisodios = mysqli_query($con, $sql1);
+                                                $dadosEp=mysqli_fetch_array($resultadoEpisodios);
+                                                ?>
+                                            <div class="ep"><?php echo $dadosEp['n']?> /
+                                                <?php
+                                                $sql = "select * from episodios where episodioAnimeId=" . $dadosAnime['animeId'];
+                                                $resultep = mysqli_query($con, $sql);
+                                                $dadosip =mysqli_fetch_array($resultep);
+                                                if(mysqli_affected_rows($con)=='')
+                                                    echo '0';
+                                                else
+                                                    echo $dadosip['episodioTotal']?> </div>
                                             <div class="comment"><i class="fa fa-comments"></i> 11</div>
                                             <div class="view"><i class="fa fa-eye"></i> 9141</div>
                                         </div>

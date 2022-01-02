@@ -15,7 +15,7 @@ top();
             $tres=0;
             while ($dadosAnime = mysqli_fetch_array($resultado) and $tres <3) {
             ?>
-            <div class="hero__items set-bg" data-setbg="<?php echo $dadosAnime['animeImagemURL'] ?>">
+            <div class="hero__items set-bg" style="width: 1140px; height: 514.25px;" data-setbg="<?php echo $dadosAnime['animeFirstImageURL'] ?>">
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="hero__text">
@@ -32,7 +32,6 @@ top();
                             }
                             ?>
                             <h2><?php echo $dadosAnime['animeName'] ?></h2>
-                            <p>After 30 days of travel across the world...</p>
                             <a href="anime-details.php?id=<?php echo $dadosAnime['animeId'] ?>"><span>Watch Now</span> <i class="fa fa-angle-right"></i></a>
                         </div>
                     </div>
