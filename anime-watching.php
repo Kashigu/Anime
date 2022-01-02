@@ -20,7 +20,8 @@ $dadosAnime = mysqli_fetch_array($resultadoAnime);
                 <div class="col-lg-12">
                     <div class="anime__details__text">
                         <div class="anime__details__title">
-                            <a href="anime-details.php?id=<?php echo $id?>"><h3><?php echo $dadosAnime['animeName'] ?></h3></a>
+                            <a href="anime-details.php?id=<?php echo $id ?>">
+                                <h3><?php echo $dadosAnime['animeName'] ?></h3></a>
                             <span style="position: absolute; margin-top: 0px"><?php echo $dadosAnime['animeJapaneseName'] ?></span>
                             <?php
                             $sql2 = "Select * from episodios where episodioAnimeId=$id and episodioId=" . $episodioId;
@@ -43,7 +44,7 @@ $dadosAnime = mysqli_fetch_array($resultadoAnime);
                 <div class="col-lg-12">
                     <div class="anime__video__player">
                         <video id="player">
-                            <source src="videos/1.mp4" type="video/mp4"/>
+                            <source src="<?php echo $dadosNome['episodioURL'] ?>" type="<?php echo $dadosNome['episodioTipe'] ?>"/>
                             <!-- Captions are optional -->
                             <track kind="captions" label="English captions" src="#" srclang="en" default/>
                         </video>
@@ -58,8 +59,8 @@ $dadosAnime = mysqli_fetch_array($resultadoAnime);
                         while ($dadosEpisodios = mysqli_fetch_array($resultadoEpisodios)) {
 
                             ?>
-                            <a href="anime-watching.php?id=<?php echo $id ?>&episodioId=<?php echo $dadosEpisodios['episodioId'] ?>"><?php echo $dadosEpisodios['episodioNr'] ?></a>
-                            <?php
+                        <a href="anime-watching.php?id=<?php echo $id ?>&episodioId=<?php echo $dadosEpisodios['episodioId'] ?>"><?php echo $dadosEpisodios['episodioNr'] ?></a>
+                        <?php
                         }
                         ?>
                     </div>

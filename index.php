@@ -1,6 +1,7 @@
 <?php
 include_once ("includes/body.inc.php");
-top()
+top();
+
 ?>
 
 
@@ -11,7 +12,8 @@ top()
             <?php
             $sql = "select * from anime";
             $resultado = mysqli_query($con,$sql);
-            while ($dadosAnime = mysqli_fetch_array($resultado)) {
+            $tres=0;
+            while ($dadosAnime = mysqli_fetch_array($resultado) and $tres <3) {
             ?>
             <div class="hero__items set-bg" data-setbg="<?php echo $dadosAnime['animeImagemURL'] ?>">
                 <div class="row">
@@ -21,10 +23,12 @@ top()
                             $sql = "select * from animeCategorias inner join Anime on categoriaAnimeId = animeId
                                                                 inner join Categorias on animeCategoriaId = categoriaId where animeId=".$dadosAnime['animeId'];
                             $resultCategorias = mysqli_query($con, $sql);
-                            while ($dadosCategorias = mysqli_fetch_array($resultCategorias)) {
+                            $max=0;
+                            while ($dadosCategorias = mysqli_fetch_array($resultCategorias) and $max <5) {
                                 ?>
                                 <div class="label"><?php echo $dadosCategorias['categoriaName'] ?></div>
                                 <?php
+                                $max++;
                             }
                             ?>
                             <h2><?php echo $dadosAnime['animeName'] ?></h2>
@@ -35,6 +39,7 @@ top()
                 </div>
             </div>
             <?php
+                $tres++;
             }
             ?>
         </div>

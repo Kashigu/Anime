@@ -12,6 +12,7 @@ function top($menu = HOME){
 <html lang="zxx">
 
 <head>
+    <link rel="shortcut icon" href="img/favicon.ico">
     <meta charset="UTF-8">
     <meta name="description" content="Anime Template">
     <meta name="keywords" content="Anime, unica, creative, html">
@@ -58,45 +59,46 @@ function top($menu = HOME){
                     <nav class="header__menu mobile-menu">
                         <?php
                         session_start();
-                        if(!isset($_SESSION['id'])){
-                        ?>
-                        <ul>
-                            <li <?php if ($menu == HOME) echo "class=\"active\""; ?>><a href="index.php">Homepage</a>
-                            </li>
-                            <li <?php if ($menu == PROCURAR) echo "class=\"active\""; ?>><a
-                                        href="procurar.php">Animes </a>
-                            </li>
-                        </ul>
-                        <?php
-                        }else{
+                        if (!isset($_SESSION['id'])) {
+                            ?>
+                            <ul>
+                                <li <?php if ($menu == HOME) echo "class=\"active\""; ?>><a
+                                            href="index.php">Homepage</a>
+                                </li>
+                                <li <?php if ($menu == PROCURAR) echo "class=\"active\""; ?>><a
+                                            href="procurar.php">Animes </a>
+                                </li>
+                            </ul>
+                            <?php
+                        } else {
                             $con = mysqli_connect(HOST, USER, PASSWORD, DATABASE);
                             $sql = "select * from users where userId=" . $_SESSION['id'];
                             $resultPerfis = mysqli_query($con, $sql);
                             $dadosPerfis = mysqli_fetch_array($resultPerfis);
 
-                        if ($_SESSION['id'] and $dadosPerfis['usersAdmin'] == 'Admin') {
+                            if ($_SESSION['id'] and $dadosPerfis['usersAdmin'] == 'Admin') {
 
-                        ?>
-                        <ul>
-                            <li <?php if ($menu == HOME) echo "class=\"active\""; ?>><a href="index.php">Homepage</a>
-                            </li>
-                            <li <?php if ($menu == PROCURAR) echo "class=\"active\""; ?>><a
-                                        href="procurar.php">Animes </a>
-                            <li><a href="admin/index.php">Site Management</a>
-                            </li>
-                        </ul>
-                        <?php
-                        }else if (($_SESSION['id']) and $dadosPerfis['usersAdmin'] =='User'){
-                        ?>
-                        <ul>
-                            <li <?php if ($menu == HOME) echo "class=\"active\""; ?>><a href="index.php">Homepage</a>
-                            </li>
-                            <li <?php if ($menu == PROCURAR) echo "class=\"active\""; ?>><a
-                                        href="procurar.php">Animes </a>
-                            </li>
-                        </ul>
-                        <?php
-                        }
+                                ?>
+                                <ul>
+                                    <li <?php if ($menu == HOME) echo "class=\"active\""; ?>><a href="index.php">Homepage</a>
+                                    </li>
+                                    <li <?php if ($menu == PROCURAR) echo "class=\"active\""; ?>><a
+                                                href="procurar.php">Animes </a>
+                                    <li><a href="admin/index.php">Site Management</a>
+                                    </li>
+                                </ul>
+                                <?php
+                            } else if (($_SESSION['id']) and $dadosPerfis['usersAdmin'] == 'User') {
+                                ?>
+                                <ul>
+                                    <li <?php if ($menu == HOME) echo "class=\"active\""; ?>><a href="index.php">Homepage</a>
+                                    </li>
+                                    <li <?php if ($menu == PROCURAR) echo "class=\"active\""; ?>><a
+                                                href="procurar.php">Animes </a>
+                                    </li>
+                                </ul>
+                                <?php
+                            }
                         }
                         ?>
 
@@ -104,8 +106,9 @@ function top($menu = HOME){
                 </div>
             </div>
             <?php
-            if(!isset($_SESSION['id'])){
-                ?> <div class="col-lg-3">
+            if (!isset($_SESSION['id'])) {
+                ?>
+                <div class="col-lg-3">
                     <div class="header__right">
                         <form action="search.php" style="position: relative; right: 30px ;" method="post"
                               enctype="multipart/form-data" id="searchProcurar">
@@ -115,21 +118,22 @@ function top($menu = HOME){
                     </div>
                 </div>
 
-            <?php
-            }else{
-            ?>
-            <div class="col-lg-3">
-                <div class="header__right">
-                    <form action="search.php" style="position: relative; right: 70px ; top: 30px" method="post"
-                          enctype="multipart/form-data" id="searchProcurar">
-                        <input style="margin-right:-50px; color: white; background-color: #0b0c2a; display: none "
-                               id="Search" type="text" placeholder="Search.." name="search">
-                    </form>
-                    <button style="background-color:transparent; border:transparent; margin-right: -90px; width: 50px; position: absolute; right: 70px ; top: 50px" onclick="mostrarSearch()"><span
-                                class="icon_search" style="color: white; margin-right: 10px"></span></button>
+                <?php
+            } else {
+                ?>
+                <div class="col-lg-3">
+                    <div class="header__right">
+                        <form action="search.php" style="position: relative; right: 70px ; top: 30px" method="post"
+                              enctype="multipart/form-data" id="searchProcurar">
+                            <input style="margin-right:-50px; color: white; background-color: #0b0c2a; display: none "
+                                   id="Search" type="text" placeholder="Search.." name="search">
+                        </form>
+                        <button style="background-color:transparent; border:transparent; margin-right: -90px; width: 50px; position: absolute; right: 70px ; top: 50px"
+                                onclick="mostrarSearch()"><span
+                                    class="icon_search" style="color: white; margin-right: 10px"></span></button>
+                    </div>
                 </div>
-            </div>
-            <?php
+                <?php
             }
             ?>
             <div class="col-lg-1">
@@ -137,7 +141,8 @@ function top($menu = HOME){
                     <?php
                     if (!isset($_SESSION['id'])) {
                         ?>
-                        <button style="background-color:transparent; border:transparent;" onclick="mostrarSearch()"><span
+                        <button style="background-color:transparent; border:transparent;"
+                                onclick="mostrarSearch()"><span
                                     class="icon_search" style="color: white; margin-right: 10px"></span></button>
                         <a href="login.php"><span class="icon_profile"></span></a>
                         <?php
@@ -170,6 +175,7 @@ function topadmin($menu = HOME){
 
 <head>
     <meta charset="UTF-8">
+    <link rel="shortcut icon" href="../img/favicon.ico">
     <meta name="description" content="Anime Template">
     <meta name="keywords" content="Anime, unica, creative, html">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -201,7 +207,7 @@ function topadmin($menu = HOME){
 <!-- Header Section Begin -->
 <header class="header">
     <div class="container">
-        <div class="row col-lg-12">
+        <div class="row">
             <div class="col-lg-4">
                 <div class="header__logo">
                     <a href="../index.php">
@@ -231,7 +237,8 @@ function topadmin($menu = HOME){
                         <input style="margin-right:-50px; color: white; background-color: #0b0c2a; display: none "
                                id="Search" type="text" placeholder="Search.." name="search">
                     </form>
-                    <button style="background-color:transparent; border:transparent; margin-right: -90px; width: 50px; position: absolute; right: 70px ; top: 50px" onclick="mostrarSearch()"><span
+                    <button style="background-color:transparent; border:transparent; margin-right: -90px; width: 50px; position: absolute; right: 70px ; top: 50px"
+                            onclick="mostrarSearch()"><span
                                 class="icon_search" style="color: white; margin-right: 10px"></span></button>
                 </div>
             </div>
