@@ -11,6 +11,11 @@ $result = mysqli_query($con, $sql);
 
     <table class="table table-striped table-hover">
         <tr>
+            <td colspan="6" align='right'>
+                <a href="novoAnime.php"><i style="color: white"> Add</i></a>
+            </td>
+        </tr>
+        <tr>
             <th style="color: white">Id</th>
             <th style="color: white">Name</th>
             <th style="color: white">Japanese Name</th>
