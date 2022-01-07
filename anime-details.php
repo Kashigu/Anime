@@ -2,8 +2,7 @@
 include_once("includes/body.inc.php");
 top(ANIMES);
 $id=intval($_GET['id']);
-$sql = "select * from animeCategorias inner join Anime on categoriaAnimeId = animeId
-        inner join Categorias on animeCategoriaId = categoriaId where animeId=".$id;
+$sql = "select * from Anime where animeId=".$id;
 $resultadoAnime =mysqli_query($con,$sql);
 $dadosAnime = mysqli_fetch_array($resultadoAnime);
 ?>
@@ -48,7 +47,7 @@ $dadosAnime = mysqli_fetch_array($resultadoAnime);
                                                 <?php
                                                 $sql1="select * from animeCategorias inner join Anime on categoriaAnimeId = animeId
                                                        inner join Categorias on animeCategoriaId = categoriaId where animeId=".$id;
-                                                $resultadoCategorias=mysqli_query($con,$sql);
+                                                $resultadoCategorias=mysqli_query($con,$sql1);
                                                 while ($dadosCategorias = mysqli_fetch_array($resultadoCategorias))
                                             {
                                                  echo $dadosCategorias['categoriaName']?>,
