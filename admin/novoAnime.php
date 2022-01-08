@@ -102,7 +102,7 @@ topadmin(GESTAO)
 
                                                 <label name="categoria" class="check" id="categoria"
                                                        style="color: white">
-                                                    <input type="checkbox" name="categoria"
+                                                    <input type="checkbox" name="categoria[]"
                                                            value="<?php echo $dadosCategorias['categoriaId'] ?>">
                                                     <span class="checkmark"></span>
                                                     <span type="checkbox"
@@ -142,7 +142,7 @@ topadmin(GESTAO)
                                           placeholder="Synopsis"></textarea>
                                         </div>
                                         <div class="col-lg-4 mt-3 anime__details__btn">
-                                            <button class="follow-btn" style="position: relative; left: 1005px;"
+                                            <button class="follow-btn" style="position: relative; left: 1005px;" name="save"
                                                     type="submit">Create
                                             </button>
                                         </div>

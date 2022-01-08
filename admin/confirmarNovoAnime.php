@@ -1,8 +1,9 @@
 <?php
+session_start();
 include_once("../includes/body.inc.php");
 
 
-$idCategoria =intval($_POST['categoria']);
+
 
 $animeName = addslashes($_POST['nomeEng']);
 $animeJap = addslashes($_POST['nomeJap']);
@@ -30,7 +31,15 @@ $sql = "insert into anime (animeId,animeName,animeImagemURL,animeJapaneseName,an
 mysqli_query($con, $sql);
 $idEst=mysqli_insert_id($con); // último Id criado pelo Insert
 
-$sql1 ="insert into animecategorias (animeCategoriaId, categoriaAnimeId) values ('".$idCategoria."','".$idEst."')";
-mysqli_query($con, $sql1);
-//header("location:../anime-details.php?id=$idEst");
+
+    $idCategoria = $_POST['categoria'];
+
+
+    foreach ($idCategoria as $categoria){
+
+        $sql1 ="insert into animecategorias (animeCategoriaId, categoriaAnimeId) values ('".$categoria."','".$idEst."')";
+        mysqli_query($con, $sql1);
+    }
+
+header("location:../anime-details.php?id=$idEst");
 ?>
