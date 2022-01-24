@@ -9,4 +9,5 @@ define("PROCURAR",2);
 define("GESTAO",3);
 define("ANIMES",4);
 define("USERS",5);
+define("EPISODES",6);
 ?>

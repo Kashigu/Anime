@@ -269,3 +269,56 @@ function DeleteTableUtilizador() { // vai buscar o ID injectado e faz o DELETE
         }
     });
 }
+
+/////////////////////////////////////////// EPISODES /////////////////////////////////////////
+
+function fillTableEpisodes(txt = '', id = -1) {
+
+    $.ajax({
+        url: "AJAX/AJAXFillEpisodios.php",
+        type: "post",
+        data: {
+            txt: txt,
+            id: id
+        },
+        success: function (result) {
+            $('#tableContent').html(result);
+        }
+    });
+
+}
+
+function eliminaEpisodes(id) {  // abre o modal e injecta o ID
+    $("#EpisodeID").html(id);
+    $.ajax({
+        url: "AJAX/AJAXGetNameEpisodios.php",
+        type: "post",
+        data: {
+            idEpisode: id
+        },
+        success: function (result) {
+
+            $("#idEpisode").html('Are you sure you want to Delete: ' + result + '?');
+
+            $("#staticBackdropDele").modal("toggle");
+            //fillTableImagens();
+
+        }
+    })
+}
+
+function DeleteTableEpisodes() {
+    $('#staticBackdropDele').modal('toggle');
+    $.ajax({
+        url: "AJAX/AJAXDeleteEpisodios.php",
+        type: "post",
+        data: {
+            episode: parseInt($('#EpisodeID').html())
+        },
+        success: function (result) {
+            fillTableEpisodes('', result);
+        }
+    });
+
+
+}

@@ -272,7 +272,7 @@ function topadmin($menu = HOME){
 <?php
 }
 
-function bot(){
+function bot($menu = HOME, $id = 0){
 ?>
 <footer class="footer">
     <div class="page-up">
@@ -328,7 +328,18 @@ function bot(){
 <script src="js/main.js"></script>
 <script src="js/common.js"></script>
 
+<script>
+ <?php
+ if ($menu == EPISODES){
+ ?>
+ $('#search').keyup(function () {
+     fillTableEpisodes(this.value,<?php echo $id ?>);
+ });
+ fillTableEpisodes('',<?php echo $id ?>);
+ <?php }
+ ?>
 
+</script>
 </body>
 
 </html>

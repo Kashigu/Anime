@@ -43,7 +43,6 @@ $dadosAnime = mysqli_fetch_array($resultadoAnime);
                                             <li><span>Studios:</span> Lerche</li>
                                             <li><span>Date aired:</span> Oct 02, 2019 to ?</li>
                                             <li><span>Status:</span> Airing</li>
-
                                             <li><span>Genre:</span>
                                                 <?php
                                                 $sql1 = "select * from animeCategorias inner join Anime on categoriaAnimeId = animeId
@@ -81,6 +80,7 @@ $dadosAnime = mysqli_fetch_array($resultadoAnime);
                                 ?>
                                 <a href="anime-watching.php?id=<?php echo $dadosAnime['animeId'] ?>&episodioId=<?php echo $dadosEpisodios['episodioId'] ?>"
                                    class="follow-btn"><span>Watch Now</span> </a>
+                                <a href="episodesList.php?id=<?php echo $id ?>" class="follow-btn" style="margin-left: 370px">Add Episodes</a>
                             </div>
                         </div>
                     </div>
