@@ -13,7 +13,7 @@ $result = mysqli_query($con, $sql);
     <table class="table table-striped table-hover">
         <tr>
             <td colspan="6" align='right'>
-                <a href="novoEpisode.php"><i style="color: white"> Add</i></a>
+                <a href="novoEpisode.php?id=<?php echo $id ?>"><i style="color: white"> Add</i></a>
             </td>
         </tr>
         <tr>
@@ -32,9 +32,10 @@ $result = mysqli_query($con, $sql);
                 <td style="color: white"><?php echo $dados['episodioName'] ?></td>
                 <td style="color: white"><?php echo $dados['episodioNr'] ?></td>
                 <td style="color: white"><?php echo $dados['episodioURL'] ?></td>
-                <td><a onclick="editaEpisodes(<?php echo $dados['episodioId'];?>)" ><i
-                            class="fa fa-edit text-primary"></i></a></td>
-                <td><a onclick="eliminaEpisodes(<?php echo $dados['episodioId'];?>)"> <i class="fa fa-trash  text-danger"></i></a></td>
+                <td><a onclick="editaEpisodes(<?php echo $dados['episodioId']; ?>)"><i
+                                class="fa fa-edit text-primary"></i></a></td>
+                <td><a onclick="eliminaEpisodes(<?php echo $dados['episodioId']; ?>)"> <i
+                                class="fa fa-trash  text-danger"></i></a></td>
             </tr>
             <?php
         }

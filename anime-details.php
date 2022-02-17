@@ -53,8 +53,7 @@ $dadosAnime = mysqli_fetch_array($resultadoAnime);
                                                         echo $dadosCategorias['categoriaName'] ?>,
                                                         <?php
                                                     }
-                                                }else
-                                                {
+                                                } else {
                                                     echo "No Data";
                                                 }
                                                 ?></li>
@@ -80,7 +79,25 @@ $dadosAnime = mysqli_fetch_array($resultadoAnime);
                                 ?>
                                 <a href="anime-watching.php?id=<?php echo $dadosAnime['animeId'] ?>&episodioId=<?php echo $dadosEpisodios['episodioId'] ?>"
                                    class="follow-btn"><span>Watch Now</span> </a>
-                                <a href="episodesList.php?id=<?php echo $id ?>" class="follow-btn" style="margin-left: 370px">Add Episodes</a>
+                                <?php
+                                if (!isset($_SESSION['id'])) {
+
+                                }
+                                if (isset($_SESSION['id'])) {
+
+                                    $con = mysqli_connect(HOST, USER, PASSWORD, DATABASE);
+                                    $sql = "select * from users where userId=" . $_SESSION['id'];
+                                    $resultPerfis = mysqli_query($con, $sql);
+                                    $dadosPerfis = mysqli_fetch_array($resultPerfis);
+
+                                    if ($_SESSION['id'] and $dadosPerfis['usersAdmin'] == 'Admin') {
+                                        ?>
+                                        <a href="episodesList.php?id=<?php echo $id ?>" class="follow-btn"
+                                           style="margin-left: 370px">Add Episodes</a>
+                                        <?php
+                                    }
+                                }
+                                ?>
                             </div>
                         </div>
                     </div>
