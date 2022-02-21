@@ -32,7 +32,7 @@ top();
                             }
                             ?>
                             <h2><?php echo $dadosAnime['animeName'] ?></h2>
-                            <a href="anime-details.php?id=<?php echo $dadosAnime['animeId'] ?>"><span>Watch Now</span> <i class="fa fa-angle-right"></i></a>
+                            <a href="anime-details.php?id=<?php echo $dadosAnime['animeId'] ?>"><span>See Details</span> <i class="fa fa-angle-right"></i></a>
                         </div>
                     </div>
                 </div>

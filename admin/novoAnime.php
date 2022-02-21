@@ -141,6 +141,13 @@ topadmin(GESTAO)
                                 <textarea name="reviewTexto" id="myTextarea"
                                           placeholder="Synopsis"></textarea>
                                         </div>
+
+                                        <div class="col-lg-12 mt-4">
+                                            <label style="color: #ffffff;">Total Episodes:</label>
+                                            <span id="ErroEP"></span>
+                                            <input type="text" name="totalEp" id="totalEp"
+                                                   placeholder="Total Episodes">
+                                        </div>
                                         <div class="col-lg-4 mt-3 anime__details__btn">
                                             <button class="follow-btn" style="position: relative; left: 1005px;" name="save"
                                                     type="submit">Create

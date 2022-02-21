@@ -50,9 +50,9 @@ top(PROCURAR)
                                                 $resultep = mysqli_query($con, $sql);
                                                 $dadosip = mysqli_fetch_array($resultep);
                                                 if (mysqli_affected_rows($con) == '')
-                                                    echo '0';
+                                                    echo $dadosAnime['animeTotalEpisodes'];
                                                 else
-                                                    echo $dadosip['episodioTotal'] ?> </div>
+                                                    echo $dadosAnime['animeTotalEpisodes'] ?> </div>
                                             <div class="comment"><i class="fa fa-comments"></i> 11</div>
                                             <div class="view"><i class="fa fa-eye"></i> 9141</div>
                                         </div>
@@ -112,9 +112,9 @@ top(PROCURAR)
                                     $resultep = mysqli_query($con, $sql);
                                     $dadosip = mysqli_fetch_array($resultep);
                                     if (mysqli_affected_rows($con) == '')
-                                        echo '0';
+                                        echo $dadosANIMES['animeTotalEpisodes'];
                                     else
-                                        echo $dadosip['episodioTotal'] ?></div>
+                                        echo $dadosANIMES['animeTotalEpisodes'] ?></div>
                                 <div class="view"><i class="fa fa-eye"></i> <?php echo 99999//$dadosANIMES['redeTipe'] ?></div>
                                 <h5>
                                     <a href="anime-details.php?id=<?php echo $dadosANIMES['animeId'] ?>"><?php echo $dadosANIMES['animeName'] ?></a>

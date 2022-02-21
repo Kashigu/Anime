@@ -28,8 +28,8 @@ $result = mysqli_query($con, $sql);
 
             <tr id="<?php echo $dados['animeId']; ?>">
                 <td data-target="animeId" style="color: white"><?php echo $dados['animeId'] ?></td>
-                <td data-target="animeName" style="color: white"><?php echo $dados['animeName'] ?></td>
-                <td data-target="animeName" style="color: white"><?php echo $dados['animeJapaneseName'] ?></td>
+                <td> <a href="../anime-details.php?id=<?php echo $dados['animeId']?>" style="color: white" ><?php echo $dados['animeName'] ?></td></a>
+                <td> <a href="../anime-details.php?id=<?php echo $dados['animeId']?>" style="color: white" ><?php echo $dados['animeJapaneseName'] ?></td></a>
                 <td data-target="animeImagem"><img width='100' height="100" src="../<?php echo $dados['animeImagemURL'] ?>"></td>
                 <td><a onclick="editaAnime(<?php echo $dados['animeId'];?>)" ><i
                             class="fa fa-edit text-primary"></i></a></td>
