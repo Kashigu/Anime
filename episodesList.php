@@ -27,46 +27,6 @@ $sql = "Select * from episodios where episodioAnimeId=".$id;
         </div>
     </section>
 
-
-    <!-- Modal do Adicionar -->
-    <div class="modal fade" id="adicionar" tabindex="-1" aria-labelledby="adicionarlabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <form action="confirmaNovoEpisodio.php" class=contact-form method=post enctype=multipart/form-data>
-                    <input type="hidden" value="<?php echo $id ?>" name="id" id="id">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="adicionarlabel">Add New Episode</h5>
-
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="row">
-                        <div class="modal-body">
-                            <div class="col-lg-6 mt-3 meio">
-
-                                <input type=text id="nomeImagem" name=nomeImagem placeholder='Nome da Imagem'>
-
-                                <input type=file id="imagem" name="imagem" >
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="modal-footer mt-2">
-                        <div class="col-lg-7 meio">
-                            <button type="button" class="btn btn-dark mt-2" data-dismiss="modal">Close</button>
-                        </div>
-                        <div class="col-lg-5 meio">
-                            <button  type="submit" class="btn btn-primary mt-2">Add</button>
-                            <!--onclick="addTableImagens();" -->
-                        </div>
-                    </div>
-                </form >
-            </div>
-        </div>
-    </div>
-
-
     <!-- Modal do Eliminar -->
     <div class="modal fade" id="staticBackdropDele" data-backdrop="static" data-keyboard="false" tabindex="-1"
          aria-labelledby="staticBackdropLabel" aria-hidden="true">

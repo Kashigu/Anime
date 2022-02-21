@@ -5,9 +5,6 @@ top(GESTAO);
 $id = intval($_GET['id']);
 
 ?>
-<link href="summernote.css" rel="stylesheet">
-<script src='js/tinymce/tinymce.min.js'></script>
-
 <section class="product-page spad">
     <div class="container">
         <div class="row">
@@ -24,8 +21,8 @@ $id = intval($_GET['id']);
                     </div>
                     <div class="col-lg-12 ">
                         <form action="confirmarNovoEpisode.php" class="contact-form" method="post"
-                              enctype="multipart/form-data" id="frmFazer">
-                            <input type="hidden" value="<?php //echo $id ?>" name="id">
+                              enctype="multipart/form-data">
+                            <input type="hidden" value="<?php echo $id ?>" name="id">
                             <div class="row">
                                 <div class="col-lg-6 mt-4">
                                     <label style="color: #ffffff;">Name in English:</label>
@@ -42,30 +39,32 @@ $id = intval($_GET['id']);
                                 <div class="col-lg-6 mt-4">
                                     <label style="color: #ffffff;">Episode URL:</label>
 
-                                    <input style="margin-left: 26px" type="text" name="episodeURL" id="episodeURL"
-                                           placeholder="Episode URL">
+                                    <input style="margin-left: 26px; color: white" type="file" name="episodeURL"
+                                           id="episodeURL">
                                 </div>
                                 <div class="col-lg-6 mt-4">
                                     <label style="color: #ffffff;">Episode Tipe:</label>
 
                                     <input style="margin-left: 41px" type="text" name="episodeTipe" id="episodeTipe"
-                                           placeholder="Episode Tipe">
+                                           placeholder="video/webm">
+                                </div>
+                                <div class="col-lg-12 mt-4">
+                                    <label style="color: #ffffff;">Episode Number:</label>
+
+                                    <input style="margin-left: 20px" type="text" name="episodeNumber" id="episodeNumber"
+                                           placeholder="Episode Number">
                                 </div>
                                 <div class="col-lg-4 mt-3 anime__details__btn">
-                                    <button class="follow-btn" style="position: relative; left: 1005px;" name="save"
+                                    <button class="follow-btn" style="position: relative; left: 1005px;"
                                             type="submit">Create
                                     </button>
                                 </div>
+                            </div>
                         </form>
                     </div>
                 </div>
-                <div class="col-lg-5 ">
-                </div>
             </div>
         </div>
-    </div>
-    </div>
-    </div>
     </div>
 </section>
 
