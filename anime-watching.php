@@ -29,7 +29,6 @@ $dadosAnime = mysqli_fetch_array($resultadoAnime);
                             $dadosNome = mysqli_fetch_array($resultadoNomes);
                             ?>
                             <h5 style="color: white; position: absolute; margin-top: 45px"><?php echo $dadosNome['episodioName'] ?></h5>
-                        </div>
                     </div>
                 </div>
             </div>
