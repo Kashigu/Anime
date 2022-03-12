@@ -315,6 +315,41 @@ function bot($menu = HOME, $id = 0){
         </form>
     </div>
 </div>
+
+<div class="container">
+
+    <!-- Modal Logout-->
+    <div class="modal fade" id="sair" tabindex="-1" aria-labelledby="sair" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content" style="background: #0b0c2a">
+                <form action="Logout.php" method="post" class="contact-form">
+                    <div class="modal-header">
+                        <h5 style="color: white" class="modal-title" id="sair">Logout</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span style="color: red" aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="row">
+                        <div class="modal-body">
+                            <div style="color: white" class="col-lg-10">
+                                Are you sure you want to Logout ?
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="col-lg-3">
+                            <button type="button" class="btn btn-secondary pull-left" data-dismiss="modal">Close</button>
+                        </div>
+                        <div class="col-lg-3">
+                            <button type="submit" class="btn btn-danger">Logout</button>
+                            <input type="hidden" name="id">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
 <!-- Search model end -->
 
 <!-- Js Plugins -->

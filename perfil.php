@@ -90,6 +90,9 @@ $dadosAnime = mysqli_fetch_array($resultadoAnime);
                                             <li><span>Rating:</span> media de rank dado</li>
                                         </ul>
                                     </div>
+                                    <div class="anime__details__btn">
+                                        <a href="#" style="margin-left: 700px" data-toggle="modal" data-target="#sair" class="follow-btn">Logout</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
