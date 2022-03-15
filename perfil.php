@@ -2,9 +2,8 @@
 include_once("includes/body.inc.php");
 top(ANIMES);
 $id = intval($_GET['id']);
-$max= 0;
-$sql = "select * from users inner join redes on redeUserId=userId
-		inner join Anime on redeAnimeId=animeId where userid=".$id;
+$max = 0;
+$sql = "select * from users where userid=" . $id;
 $resultadoAnime = mysqli_query($con, $sql);
 $dadosAnime = mysqli_fetch_array($resultadoAnime);
 ?>
@@ -29,49 +28,49 @@ $dadosAnime = mysqli_fetch_array($resultadoAnime);
                                         <ul>
                                             <?php
                                             $sql = "Select count(*) as n from users inner join redes on redeUserId=userId
-		                                            inner join Anime on redeAnimeId=animeId where userid=".$id." and redeTipe='watching'";
+		                                            inner join Anime on redeAnimeId=animeId where userid=" . $id . " and redeTipe='watching'";
                                             $resultado = mysqli_query($con, $sql);
                                             $dados = mysqli_fetch_array($resultado);
                                             ?>
                                             <li><span>Watching:</span> <?php echo $dados['n'] ?></li>
                                             <?php
                                             $sql = "Select count(*) as n from users inner join redes on redeUserId=userId
-		                                            inner join Anime on redeAnimeId=animeId where userid=".$id." and redeTipe='completed'";
+		                                            inner join Anime on redeAnimeId=animeId where userid=" . $id . " and redeTipe='completed'";
                                             $resultado = mysqli_query($con, $sql);
                                             $dados = mysqli_fetch_array($resultado);
                                             ?>
                                             <li><span>Completed:</span> <?php echo $dados['n'] ?></li>
                                             <?php
                                             $sql = "Select count(*) as n from users inner join redes on redeUserId=userId
-		                                            inner join Anime on redeAnimeId=animeId where userid=".$id." and redeTipe='onhold'";
+		                                            inner join Anime on redeAnimeId=animeId where userid=" . $id . " and redeTipe='onhold'";
                                             $resultado = mysqli_query($con, $sql);
                                             $dados = mysqli_fetch_array($resultado);
                                             ?>
                                             <li><span>On Hold:</span> <?php echo $dados['n'] ?></li>
                                             <?php
                                             $sql = "Select count(*) as n from users inner join redes on redeUserId=userId
-		                                            inner join Anime on redeAnimeId=animeId where userid=".$id." and redeTipe='dropped'";
+		                                            inner join Anime on redeAnimeId=animeId where userid=" . $id . " and redeTipe='dropped'";
                                             $resultado = mysqli_query($con, $sql);
                                             $dados = mysqli_fetch_array($resultado);
                                             ?>
                                             <li><span>Dropped:</span> <?php echo $dados['n'] ?></li>
                                             <?php
                                             $sql = "Select count(*) as n from users inner join redes on redeUserId=userId
-		                                            inner join Anime on redeAnimeId=animeId where userid=".$id." and redeTipe='plan'";
+		                                            inner join Anime on redeAnimeId=animeId where userid=" . $id . " and redeTipe='plan'";
                                             $resultado = mysqli_query($con, $sql);
                                             $dados = mysqli_fetch_array($resultado);
                                             ?>
                                             <li><span>Plan to Watch:</span> <?php echo $dados['n'] ?></li>
                                             <?php
                                             $sql = "Select count(*) as n from users inner join redes on redeUserId=userId
-		                                            inner join Anime on redeAnimeId=animeId where userid=".$id." and redeTipe='like'";
+		                                            inner join Anime on redeAnimeId=animeId where userid=" . $id . " and redeTipe='like'";
                                             $resultado = mysqli_query($con, $sql);
                                             $dados = mysqli_fetch_array($resultado);
                                             ?>
                                             <li><span>Liked:</span> <?php echo $dados['n'] ?></li>
                                             <?php
                                             $sql = "Select count(*) as n from users inner join redes on redeUserId=userId
-		                                            inner join Anime on redeAnimeId=animeId where userid=".$id." and redeTipe='favorite'";
+		                                            inner join Anime on redeAnimeId=animeId where userid=" . $id . " and redeTipe='favorite'";
                                             $resultado = mysqli_query($con, $sql);
                                             $dados = mysqli_fetch_array($resultado);
                                             ?>
@@ -82,7 +81,7 @@ $dadosAnime = mysqli_fetch_array($resultadoAnime);
                                         <ul>
                                             <?php
                                             $sql = "Select count(*) as n from users inner join redes on redeUserId=userId
-		                                            inner join Anime on redeAnimeId=animeId where userid=".$id." and redeTipe!='favorite' and redeTipe!='like'";
+		                                            inner join Anime on redeAnimeId=animeId where userid=" . $id . " and redeTipe!='favorite' and redeTipe!='like'";
                                             $resultado = mysqli_query($con, $sql);
                                             $dados = mysqli_fetch_array($resultado);
                                             ?>
@@ -90,9 +89,17 @@ $dadosAnime = mysqli_fetch_array($resultadoAnime);
                                             <li><span>Rating:</span> media de rank dado</li>
                                         </ul>
                                     </div>
-                                    <div class="anime__details__btn">
-                                        <a href="#" style="margin-left: 700px" data-toggle="modal" data-target="#sair" class="follow-btn">Logout</a>
-                                    </div>
+                                    <?php
+                                    if ($_SESSION['id'] == $id) {
+                                        ?>
+                                        <div class="anime__details__btn" style="margin-left: 500px">
+                                            <a href="DefPerfil.php?id=<?php echo $dadosAnime['userId'] ?>" class="follow-btn">Settings</a>
+                                            <a href="#" data-toggle="modal"
+                                               data-target="#sair" class="follow-btn">Logout</a>
+                                        </div>
+                                        <?php
+                                    }
+                                        ?>
                                 </div>
                             </div>
                         </div>
@@ -175,20 +182,24 @@ $dadosAnime = mysqli_fetch_array($resultadoAnime);
                 <div class="col-lg-4 col-md-4">
                     <div class="anime__details__sidebar">
                         <div class="section-title">
-                            <h5><a style="color: white" href="perfil-details.php?id=<?php echo $dadosAnime['userId'] ?>"> Favorite Animes</a></h5>
+                            <h5><a style="color: white"
+                                   href="perfil-details.php?id=<?php echo $dadosAnime['userId'] ?>"> Favorite Animes</a>
+                            </h5>
                         </div>
                         <?php
                         $sql = "select * from users inner join redes on redeUserId=userId
-		                        inner join Anime on redeAnimeId=animeId where userid=".$id." and redeTipe='favorite'";
+		                        inner join Anime on redeAnimeId=animeId where userid=" . $id . " and redeTipe='favorite'";
                         $resultadoAnime = mysqli_query($con, $sql);
-                        while ($dadosAnime = mysqli_fetch_array($resultadoAnime) and $max < 4)
-                        {
+                        while ($dadosAnime = mysqli_fetch_array($resultadoAnime) and $max < 4) {
                             $max++;
-                        ?>
-                        <div class="product__sidebar__view__item set-bg" data-setbg="<?php echo $dadosAnime['animeImagemURL'] ?> " >
-                            <h5><a href="anime-details.php?id=<?php echo $dadosAnime['animeId'] ?>"><?php echo $dadosAnime['animeName'] ?></a></h5>
-                        </div>
-                        <?php
+                            ?>
+                            <div class="product__sidebar__view__item set-bg"
+                                 data-setbg="<?php echo $dadosAnime['animeImagemURL'] ?> ">
+                                <h5>
+                                    <a href="anime-details.php?id=<?php echo $dadosAnime['animeId'] ?>"><?php echo $dadosAnime['animeName'] ?></a>
+                                </h5>
+                            </div>
+                            <?php
                         }
                         ?>
                     </div>
