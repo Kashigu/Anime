@@ -77,8 +77,14 @@ $dadosAnime = mysqli_fetch_array($resultadoAnime);
                                 $resultadoEpisodios = mysqli_query($con, $sql1);
                                 $dadosEpisodios = mysqli_fetch_array($resultadoEpisodios)
                                 ?>
+                                <?php
+                                if (mysqli_affected_rows($con) != 0){
+                                    ?>
                                 <a href="anime-watching.php?id=<?php echo $dadosAnime['animeId'] ?>&episodioId=<?php echo $dadosEpisodios['episodioId'] ?>"
                                    class="follow-btn"><span>Watch Now</span> </a>
+                                    <?php
+                                   }
+                                ?>
                                 <?php
                                 if (!isset($_SESSION['id'])) {
 
