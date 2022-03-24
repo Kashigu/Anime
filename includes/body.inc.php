@@ -106,27 +106,54 @@ function top($menu = HOME){
                 </div>
             </div>
             <?php
-            if (!isset($_SESSION['id'])) {
+            if (!isset($_SESSION['id']) && $menu != PROCURAR) {
                 ?>
                 <div class="col-lg-3">
                     <div class="header__right">
-                        <form action="search.php" style="position: relative; right: 30px ;" method="post"
+                        <form action="procurar.php" style="position: relative; right: 30px ;" method="get"
                               enctype="multipart/form-data" id="searchProcurar">
                             <input style="margin-right:-50px; color: white; background-color: #0b0c2a; display: none "
-                                   id="Search" type="text" placeholder="Search.." name="search">
+                                   id="Search" type="text" placeholder="Search.." name="txt">
                         </form>
                     </div>
                 </div>
 
                 <?php
-            } else {
+            } elseif (!isset($_SESSION['id']) && $menu == PROCURAR) {
                 ?>
                 <div class="col-lg-3">
                     <div class="header__right">
-                        <form action="search.php" style="position: relative; right: 70px ; top: 30px" method="post"
+                        <form action="procurar.php" style="position: relative; right: 30px ;" method="post"
                               enctype="multipart/form-data" id="searchProcurar">
                             <input style="margin-right:-50px; color: white; background-color: #0b0c2a; display: none "
-                                   id="Search" type="text" placeholder="Search.." name="search">
+                                   id="Search" type="text" placeholder="Search.." name="txt">
+                        </form>
+                    </div>
+                </div>
+                <?php
+            } elseif (isset($_SESSION['id']) && $menu == PROCURAR) {
+                ?>
+                <div class="col-lg-3">
+                    <div class="header__right">
+                        <form action="procurar.php" style="position: relative; right: 70px ; top: 30px" method="post"
+                              enctype="multipart/form-data" id="searchProcurar">
+                            <input style="margin-right:-50px; color: white; background-color: #0b0c2a; display: none "
+                                   id="Search" type="text" placeholder="Search.." name="txt">
+                        </form>
+                        <button style="background-color:transparent; border:transparent; margin-right: -90px; width: 50px; position: absolute; right: 70px ; top: 50px"
+                                onclick="mostrarSearch()"><span
+                                    class="icon_search" style="color: white; margin-right: 10px"></span></button>
+                    </div>
+                </div>
+                <?php
+            } elseif (isset($_SESSION['id']) && $menu != PROCURAR) {
+                ?>
+                <div class="col-lg-3">
+                    <div class="header__right">
+                        <form action="procurar.php" style="position: relative; right: 70px ; top: 30px" method="get"
+                              enctype="multipart/form-data" id="searchProcurar">
+                            <input style="margin-right:-50px; color: white; background-color: #0b0c2a; display: none "
+                                   id="Search" type="text" placeholder="Search.." name="txt">
                         </form>
                         <button style="background-color:transparent; border:transparent; margin-right: -90px; width: 50px; position: absolute; right: 70px ; top: 50px"
                                 onclick="mostrarSearch()"><span
@@ -232,10 +259,10 @@ function topadmin($menu = HOME){
             </div>
             <div class="col-lg-3">
                 <div class="header__right">
-                    <form action="../search.php" style="position: relative; right: 70px ; top: 30px" method="post"
+                    <form action="../procurar.php" style="position: relative; right: 70px ; top: 30px" method="get"
                           enctype="multipart/form-data" id="searchProcurar">
                         <input style="margin-right:-50px; color: white; background-color: #0b0c2a; display: none "
-                               id="Search" type="text" placeholder="Search.." name="search">
+                               id="Search" type="text" placeholder="Search.." name="txt">
                     </form>
                     <button style="background-color:transparent; border:transparent; margin-right: -90px; width: 50px; position: absolute; right: 70px ; top: 50px"
                             onclick="mostrarSearch()"><span
@@ -338,7 +365,8 @@ function bot($menu = HOME, $id = 0){
                     </div>
                     <div class="modal-footer">
                         <div class="col-lg-3">
-                            <button type="button" class="btn btn-secondary pull-left" data-dismiss="modal">Close</button>
+                            <button type="button" class="btn btn-secondary pull-left" data-dismiss="modal">Close
+                            </button>
                         </div>
                         <div class="col-lg-3">
                             <button type="submit" class="btn btn-danger">Logout</button>
@@ -364,15 +392,15 @@ function bot($menu = HOME, $id = 0){
 <script src="js/common.js"></script>
 
 <script>
- <?php
- if ($menu == EPISODES){
- ?>
- $('#search').keyup(function () {
-     fillTableEpisodes(this.value,<?php echo $id ?>);
- });
- fillTableEpisodes('',<?php echo $id ?>);
- <?php }
- ?>
+    <?php
+    if ($menu == EPISODES){
+    ?>
+    $('#search').keyup(function () {
+        fillTableEpisodes(this.value,<?php echo $id ?>);
+    });
+    fillTableEpisodes('',<?php echo $id ?>);
+    <?php }
+    ?>
 
 </script>
 </body>

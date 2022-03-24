@@ -1,6 +1,14 @@
 <?php
 include_once("includes/body.inc.php");
-top(PROCURAR)
+top(PROCURAR);
+
+if (isset ($_GET['txt'])) {
+    $nome = addslashes($_GET['txt']);
+} else {
+    $nome = '';
+}
+?>
+
 ?>
     <!-- Product Section Begin -->
     <section class="product-page spad">
