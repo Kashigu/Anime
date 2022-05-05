@@ -90,16 +90,20 @@ $dadosAnime = mysqli_fetch_array($resultadoAnime);
                                         </ul>
                                     </div>
                                     <?php
-                                    if ($_SESSION['id'] == $id) {
-                                        ?>
-                                        <div class="anime__details__btn" style="margin-left: 500px">
-                                            <a href="DefPerfil.php?id=<?php echo $dadosAnime['userId'] ?>" class="follow-btn">Settings</a>
-                                            <a href="#" data-toggle="modal"
-                                               data-target="#sair" class="follow-btn">Logout</a>
-                                        </div>
-                                        <?php
+                                    if (isset($_SESSION['id'])){
+                                        if ($_SESSION['id'] == $id) {
+                                            ?>
+                                            <div class="anime__details__btn" style="margin-left: 500px">
+                                                <a href="DefPerfil.php?id=<?php echo $dadosAnime['userId'] ?>"
+                                                   class="follow-btn">Settings</a>
+                                                <a href="#" data-toggle="modal"
+                                                   data-target="#sair" class="follow-btn">Logout</a>
+                                            </div>
+                                            <?php
+                                        }
+                                    }elseif(!isset($_SESSION['id'])){
                                     }
-                                        ?>
+                                    ?>
                                 </div>
                             </div>
                         </div>
